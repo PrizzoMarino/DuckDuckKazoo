@@ -29,19 +29,20 @@ void UMyGameInstance::Host() {
 
     if (!ensure(World != nullptr)) { return; };
 
-    World->ServerTravel("/Game/Maps/lobby?listen");
+    World->ServerTravel("/Game/Map/Game?listen");
 
 }
 
-void UMyGameInstance::Join(const FString& IPAddress) {
+void UMyGameInstance::Join(const FString& IPAddress)
+{
+    if (GEngine)
+        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Cyan,
+            FString::Printf(TEXT("Attempting to join IP: %s"), *IPAddress));
 
-	if (GEngine)
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Joining requested server."));
+    APlayerController* Controller = GetFirstLocalPlayerController();
 
-	APlayerController* Controller = GetFirstLocalPlayerController();
+    if (!ensure(Controller != nullptr)) return;
 
-	if (!ensure(Controller != nullptr)) { return; };
-
-	Controller->ClientTravel(*IPAddress, ETravelType::TRAVEL_Absolute);
+    Controller->ClientTravel(*IPAddress, ETravelType::TRAVEL_Absolute);
 }
 

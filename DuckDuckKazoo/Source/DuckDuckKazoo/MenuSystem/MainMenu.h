@@ -3,15 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/GameInstance.h"
-#include "MyGameInstance.generated.h"
+#include "Blueprint/UserWidget.h"
+#include "../MyGameInstance.h"
+#include "MainMenu.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class DUCKDUCKKAZOO_API UMyGameInstance : public UGameInstance
+class DUCKDUCKKAZOO_API UMainMenu : public UUserWidget
 {
 	GENERATED_BODY()
-	
+
+
 };

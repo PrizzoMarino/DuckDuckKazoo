@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
 #include "Blueprint/UserWidget.h"
+#include "MenuSystem/MainMenu.h"
 #include "UObject/ConstructorHelpers.h"
 
 UMyGameInstance::UMyGameInstance()
@@ -45,4 +46,3 @@ void UMyGameInstance::Join(const FString& IPAddress)
 
     Controller->ClientTravel(*IPAddress, ETravelType::TRAVEL_Absolute);
 }
-

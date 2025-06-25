@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "DuckDuckKazoo",
+			"Path": "..\\Source\\DuckDuckKazoo.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "DuckDuckKazooEditor",
+			"Path": "..\\Source\\DuckDuckKazooEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

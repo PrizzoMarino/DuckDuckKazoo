@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\prizm\\Documents\\GitHub\\DuckDuckKazoo\\DuckDuckKazoo\\Source\\DuckDuckKazoo\\DuckDuckKazoo.Build.cs",
+		"C:\\Users\\prizm\\Documents\\GitHub\\DuckDuckKazoo\\DuckDuckKazoo\\Source\\DuckDuckKazoo.Target.cs",
+		"C:\\Users\\prizm\\Documents\\GitHub\\DuckDuckKazoo\\DuckDuckKazoo\\Source\\DuckDuckKazooEditor.Target.cs"
+	],
+	"EngineVersion": "5.4.4"
+}

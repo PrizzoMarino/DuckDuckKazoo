@@ -14,4 +14,14 @@ class DUCKDUCKKAZOO_API UMyGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
 	
+public:
+    UMyGameInstance();
+
+    virtual void Init() override;
+
+    UFUNCTION(Exec)
+    void Host();
+
+    UFUNCTION(Exec)
+    void Join(const FString& IPAddress);
 };

@@ -25,4 +25,14 @@ public:
     UFUNCTION(Exec)
     void Join(const FString& IPAddress);
 
+	UFUNCTION(Exec, BlueprintCallable, Category = "Menu")
+	void MainMenu();
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "UI")
+	TSubclassOf<UUserWidget> WidgetClass;
+
+
+private:
+	UPROPERTY()
+	class UMainMenu* MainMenuWidget;
 };

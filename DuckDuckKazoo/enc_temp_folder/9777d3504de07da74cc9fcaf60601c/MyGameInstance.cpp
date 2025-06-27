@@ -7,7 +7,6 @@
 #include "Kismet/GameplayStatics.h"
 #include "Blueprint/UserWidget.h"
 #include "MenuSystem/MainMenu.h"
-#include "MenuSystem/Menu.h"
 #include "UObject/ConstructorHelpers.h"
 
 UMyGameInstance::UMyGameInstance() {
@@ -31,7 +30,7 @@ void UMyGameInstance::Init() {
 
 	if (WidgetClass && GetWorld())
 	{
-		MainMenuWidget = CreateWidget<UMenu>(GetWorld(), WidgetClass);
+		MainMenuWidget = CreateWidget<UMainMenu>(GetWorld(), WidgetClass);
 		if (MainMenuWidget)
 		{
 			MainMenuWidget->SetMenuGameInstance(this);
@@ -48,6 +47,8 @@ void UMyGameInstance::Init() {
 	{
 		UE_LOG(LogTemp, Error, TEXT("WidgetClass is null or GetWorld() failed."));
 	}
+
+
 }
 
 void UMyGameInstance::Host() {
@@ -61,12 +62,6 @@ void UMyGameInstance::Host() {
 
     World->ServerTravel("/Game/Map/Game?listen");
 
-}
-
-void UMyGameInstance::HostSingleplayer() {
-	UE_LOG(LogTemp, Warning, TEXT("Starting Singleplayer..."));
-
-	UGameplayStatics::OpenLevel(this, FName("Game"));
 }
 
 void UMyGameInstance::Join(const FString& IPAddress)
@@ -95,7 +90,7 @@ void UMyGameInstance::MainMenu()
 	{
 		if (!MainMenuWidget)
 		{
-			MainMenuWidget = CreateWidget<UMenu>(World, WidgetClass);
+			MainMenuWidget = CreateWidget<UMainMenu>(World, WidgetClass);
 		}
 
 		if (MainMenuWidget)

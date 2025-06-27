@@ -22,9 +22,6 @@ public:
     UFUNCTION(Exec)
     void Host();
 
-	UFUNCTION(Exec)
-	void HostSingleplayer();
-
     UFUNCTION(Exec)
     void Join(const FString& IPAddress);
 
@@ -37,5 +34,5 @@ public:
 
 private:
 	UPROPERTY()
-	class UMenu* MainMenuWidget;
+	class UMainMenu* MainMenuWidget;
 };

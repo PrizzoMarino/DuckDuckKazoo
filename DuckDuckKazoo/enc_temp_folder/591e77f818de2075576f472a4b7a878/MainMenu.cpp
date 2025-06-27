@@ -110,7 +110,7 @@ void UMainMenu::NativeDestruct() {
     }
 
     APlayerController* PlayerController = World->GetFirstPlayerController();
-    if (!PlayerController)  
+    if (!PlayerController)
     {
         UE_LOG(LogTemp, Warning, TEXT("PlayerController is null inside native."));
         return;

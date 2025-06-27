@@ -12,7 +12,7 @@
 
 UMyGameInstance::UMyGameInstance() {
 	UE_LOG(LogTemp, Warning, TEXT("UMyGameInstance has been called."));
-	ConstructorHelpers::FClassFinder<UUserWidget> MenuBPClass(TEXT("/Game/HUDs/WBP_MainMenu"));
+	ConstructorHelpers::FClassFinder<UUserWidget> MenuBPClass(TEXT("/Game/HUDs/WBP_Menu"));
 
 	if (MenuBPClass.Succeeded())
 	{

@@ -116,3 +116,12 @@ void UMainMenu::NativeDestruct() {
     PlayerController->bShowMouseCursor = false;
     UE_LOG(LogTemp, Log, TEXT("Main Menu and cursor gone."))
 }
+
+void UMainMenu::SetMenuGameInstance(UMyGameInstance* GameInstance)
+{
+    MenuGameInstance = GameInstance;
+    if (GameInstance)
+    {
+        UE_LOG(LogTemp, Log, TEXT("GameInstance successfully set in UMainMenu."));
+    }
+}

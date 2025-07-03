@@ -78,11 +78,6 @@ void UMainMenu::CancelJoin() {
 }
 
 
-void UMainMenu::SetMenuGameInstance(UMyGameInstance* GameInstance)
-{
-    MenuGameInstance = GameInstance;
-}
-
 void UMainMenu::Setup() {
     if (!ensure(GetWorld())) return;
 

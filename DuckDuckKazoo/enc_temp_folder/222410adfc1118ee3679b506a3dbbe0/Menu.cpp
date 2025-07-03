@@ -4,7 +4,6 @@
 #include "Menu.h"
 #include "Kismet/GameplayStatics.h"
 #include "Blueprint/UserWidget.h"
-#include "MainMenu.h"
 #include "Components/Button.h"
 
 bool UMenu::Initialize()
@@ -47,31 +46,24 @@ void UMenu::startLAN()
         return;
     }
 
-    UMainMenu* LANMenuWidget = CreateWidget<UMainMenu>(GetWorld(), LANWidgetClass);
-    if (!LANMenuWidget) {
-        UE_LOG(LogTemp, Error, TEXT("Failed to create LANMenuWidget."));
+    LANWidget = CreateWidget<UUserWidget>(GetWorld(), LANWidgetClass);
+    if (!LANWidget) {
+        UE_LOG(LogTemp, Error, TEXT("Failed to create LANWidget."));
         return;
     }
 
     RemoveFromParent();
-
-    if (MenuGameInstance)
-    {
-        LANMenuWidget->SetMenuGameInstance(MenuGameInstance);
-    }
-
-    LANMenuWidget->AddToViewport();
+    LANWidget->AddToViewport();
 
     APlayerController* PC = GetWorld()->GetFirstPlayerController();
     if (PC) {
         FInputModeUIOnly InputMode;
-        InputMode.SetWidgetToFocus(LANMenuWidget->TakeWidget());
+        InputMode.SetWidgetToFocus(LANWidget->TakeWidget());
         InputMode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
         PC->SetInputMode(InputMode);
         PC->bShowMouseCursor = true;
     }
 }
-
 
 void UMenu::startMultiplayer()
 {
